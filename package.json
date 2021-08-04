@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "name": "git-clone-action",
+    "version": "0.0.0-semantically-released",
+    "author": {
+      "name": "RekGRpth",
+      "email": "RekGRpth@gmail.com",
+      "url": "https://github.com/RekGRpth/git-clone-action"
+    },
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }

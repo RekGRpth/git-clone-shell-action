@@ -1,0 +1,15 @@
+name: git clone action
+description: git clone action
+author: RekGRpth
+inputs:
+  branch:
+    description: git clone branch
+runs:
+  using: composite
+  steps:
+    - run: |
+        set -eux
+        GITHUB_BRUNCH="${GITHUB_REF#refs/heads/}"
+        GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}}"
+        git clone --progress --single-branch --branch "${GITHUB_BRUNCH}" "https://${GITHUB_REPOSITORY_OWNER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_NAME}.git" .
+      shell: sh
