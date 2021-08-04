@@ -9,9 +9,6 @@ runs:
   steps:
     - run: |
         set -eux
-        GITHUB_BRANCH="${GITHUB_REF##*/}"
-        GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY##*/}"
-        GITHUB_TOKEN="${{ github.token }}"
         INPUTS_BRANCH="${{ inputs.branch }}"
-        git clone --progress --single-branch --branch "${INPUTS_BRANCH:-${GITHUB_BRANCH}}" "https://${GITHUB_REPOSITORY_OWNER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_NAME}.git" .
+        git clone --progress --single-branch --branch "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" "https://${{ github.repository_owner }}:${{ github.token }}@github.com/${{ github.repository }}.git" .
       shell: sh
