@@ -13,5 +13,5 @@ runs:
         GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY##*/}"
         GITHUB_TOKEN="${{ github.token }}"
         INPUTS_BRANCH="${{ inputs.branch }}"
-        git clone --progress --single-branch --branch "${INPUTS_BRANCH:-$GITHUB_BRANCH}" "https://${GITHUB_REPOSITORY_OWNER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_NAME}.git" .
+        git clone --progress --single-branch --branch "${INPUTS_BRANCH:-${GITHUB_BRANCH}}" "https://${GITHUB_REPOSITORY_OWNER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_NAME}.git" .
       shell: sh
