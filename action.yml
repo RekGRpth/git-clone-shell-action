@@ -9,6 +9,7 @@ runs:
   steps:
     - run: |
         set -eux
+        env
         GITHUB_BRUNCH="${GITHUB_REF#refs/heads/}"
         GITHUB_REPOSITORY_NAME="${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}}"
         git clone --progress --single-branch --branch "${GITHUB_BRUNCH}" "https://${GITHUB_REPOSITORY_OWNER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_NAME}.git" .
