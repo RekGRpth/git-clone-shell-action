@@ -9,6 +9,6 @@ runs:
   steps:
     - run: |
         set -eux
-        INPUTS_BRANCH="${{ inputs.branch }}"
-        git clone --progress --single-branch --branch "${INPUTS_BRANCH:-${GITHUB_REF##*/}}" "https://${{ github.repository_owner }}:${{ github.token }}@github.com/${{ github.repository }}.git" .
+        export INPUTS_BRANCH="${{ inputs.branch }}"
+        "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
