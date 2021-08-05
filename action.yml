@@ -7,9 +7,8 @@ inputs:
 runs:
   using: composite
   steps:
-    - run: |
-        set -eux
-        export INPUTS_BRANCH="${{ inputs.branch }}"
-        export GITHUB_TOKEN="${{ github.token }}"
-        "${GITHUB_ACTION_PATH}/action.sh"
+    - env:
+        GITHUB_TOKEN: ${{ github.token }}
+        INPUTS_BRANCH: ${{ inputs.branch }}
+      run: "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
