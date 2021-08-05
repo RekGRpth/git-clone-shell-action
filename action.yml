@@ -1,4 +1,4 @@
-name: git clone action
+name: git clone shell action
 description: git clone action
 author: RekGRpth
 inputs:
