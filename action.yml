@@ -7,8 +7,8 @@ inputs:
 runs:
   using: composite
   steps:
+    - run: echo "${{ toJSON(github) }}"
     - env:
         GITHUB_TOKEN: ${{ github.token }}
         INPUTS_BRANCH: ${{ inputs.branch }}
       run: "${GITHUB_ACTION_PATH}/action.sh"
-      shell: sh

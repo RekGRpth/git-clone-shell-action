@@ -1,7 +1,7 @@
 {
     "private": true,
     "name": "git-clone-action",
-    "version": "master",
+    "version": "v1",
     "author": {
       "name": "RekGRpth",
       "email": "RekGRpth@gmail.com",

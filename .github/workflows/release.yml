@@ -2,14 +2,18 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - v1
   workflow_dispatch:
 jobs:
   release:
+    concurrency:
+      cancel-in-progress: true
+      group: ${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
+      - run: echo "${{ toJSON(github) }}"
       - uses: rekgrpth/git-clone-action@v1
       - env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: hub release edit --message "${{ github.event.head_commit.message }}" v1
-        shell: sh
+          INPUTS_MESSAGE: ${{ github.event.head_commit.message }}
+        run: .github/workflows/release.sh
