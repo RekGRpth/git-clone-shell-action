@@ -12,3 +12,4 @@ jobs:
       - env:
           GITHUB_TOKEN: ${{ github.token }}
         run: hub release edit --message "${{ github.event.head_commit.message }}" v1
+        shell: sh
