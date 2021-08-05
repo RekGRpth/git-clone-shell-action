@@ -4,7 +4,5 @@ author: RekGRpth
 runs:
   using: composite
   steps:
-    - run: echo "${{ toJSON(github) }}"
-      shell: sh
     - run: "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh

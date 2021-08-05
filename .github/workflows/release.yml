@@ -13,7 +13,6 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github) }}"
       - uses: rekgrpth/git-clone-action@v1
       - env:
           INPUTS_MESSAGE: ${{ github.event.head_commit.message }}
