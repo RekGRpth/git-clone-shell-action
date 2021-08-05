@@ -11,7 +11,4 @@ jobs:
       - uses: rekgrpth/git-clone-action@v1
       - env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: |
-            set -eux
-            hub release delete v1 || echo "$?"
-            hub release create --message "${{ github.event.head_commit.message }}" v1
+        run: hub release edit --message "${{ github.event.head_commit.message }}" v1
