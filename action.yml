@@ -10,5 +10,6 @@ runs:
     - run: |
         set -eux
         export INPUTS_BRANCH="${{ inputs.branch }}"
+        export GITHUB_TOKEN="${{ github.token }}"
         "${GITHUB_ACTION_PATH}/action.sh"
       shell: sh
