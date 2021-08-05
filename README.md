@@ -16,7 +16,5 @@ clone given branch of current workflow repository to work with it
 ```yaml
 - uses: rekgrpth/git-clone-action@v1
   with:
-    # branch to clone
-    # default: current workflow branch, usually it is default branch, usually it is master
-    branch: master
+    branch: master # branch to clone, default: current workflow branch, usually it is default branch, usually it is master
 ```
