@@ -13,5 +13,5 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
             set -eux
-            hub release delete master || echo "$?"
-            hub release create --message "${{ github.event.head_commit.message }}" master
+            hub release delete v1 || echo "$?"
+            hub release create --message "${{ github.event.head_commit.message }}" v1
