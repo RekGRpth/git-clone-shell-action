@@ -9,11 +9,12 @@ jobs:
     concurrency:
       cancel-in-progress: true
       group: ${{ github.ref }}
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ toJSON(github) }}"
       - uses: rekgrpth/git-clone-action@v1
       - env:
-          GITHUB_TOKEN: ${{ github.token }}
           INPUTS_MESSAGE: ${{ github.event.head_commit.message }}
         run: .github/workflows/release.sh
