@@ -1,14 +1,11 @@
 # git clone shell action
 
-![Repository License](https://img.shields.io/github/license/RekGRpth/git-clone-shell-action)
-![Repository Release](https://img.shields.io/github/v/release/RekGRpth/git-clone-shell-action)
-
-clone definded branch of current workflow repository to work with it
+## clone definded branch of current workflow repository to work with it
 
 ### usage
 
-```yaml
-- uses: rekgrpth/git-clone-shell-action@v1
-  with:
-    branch: master # branch to clone, default: current workflow branch (usually it is repository default branch (usually it is master))
+```yml
+- env:
+    INPUTS_BRANCH: master # branch to clone, default: ${GITHUB_REF##*/}
+  uses: rekgrpth/git-clone-shell-action@v1
 ```
