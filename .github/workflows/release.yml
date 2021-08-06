@@ -9,10 +9,8 @@ jobs:
     concurrency:
       cancel-in-progress: true
       group: ${{ github.ref }}
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
     runs-on: ubuntu-latest
     steps:
-      - run: hub api --method DELETE "repos/${GITHUB_REPOSITORY}/releases/$(hub api --method GET "repos/${GITHUB_REPOSITORY}/releases/tags/${GITHUB_REF##*/}" | jq .id)" | jq .
-      - run: hub api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/tags/${GITHUB_REF##*/}" | jq .
-      - run: hub api --method POST "repos/${GITHUB_REPOSITORY}/releases" --field "tag_name=${GITHUB_REF##*/}" | jq .
+      - env:
+          GITHUB_TOKEN: ${{ github.token }}
+        uses: rekgrpth/github-publish-action-shell-action@v1
