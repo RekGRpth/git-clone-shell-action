@@ -1,5 +1,5 @@
-name: git clone shell action
-description: git clone action
+name: git clone shell shell action
+description: git clone shell action
 author: RekGRpth
 runs:
   using: composite

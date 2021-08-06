@@ -1,11 +1,11 @@
 {
     "private": true,
-    "name": "git-clone-action",
+    "name": "git-clone-shell-action",
     "version": "v1",
     "author": {
       "name": "RekGRpth",
       "email": "RekGRpth@gmail.com",
-      "url": "https://github.com/RekGRpth/git-clone-action"
+      "url": "https://github.com/RekGRpth/git-clone-shell-action"
     },
     "license": "MIT",
     "dependencies": {

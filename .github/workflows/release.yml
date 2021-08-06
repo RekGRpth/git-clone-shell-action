@@ -5,7 +5,7 @@ on:
       - v1
   workflow_dispatch:
 jobs:
-  release:
+  push:
     concurrency:
       cancel-in-progress: true
       group: ${{ github.ref }}
@@ -13,7 +13,6 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     runs-on: ubuntu-latest
     steps:
-      - uses: rekgrpth/git-clone-action@v1
-      - env:
-          INPUTS_MESSAGE: ${{ github.event.head_commit.message }}
-        run: .github/workflows/release.sh
+      - run: hub api --method DELETE "repos/${GITHUB_REPOSITORY}/releases/$(hub api --method GET "repos/${GITHUB_REPOSITORY}/releases/tags/${GITHUB_REF##*/}" | jq .id)" | jq .
+      - run: hub api --method DELETE "repos/${GITHUB_REPOSITORY}/git/refs/tags/${GITHUB_REF##*/}" | jq .
+      - run: hub api --method POST "repos/${GITHUB_REPOSITORY}/releases" --field "tag_name=${GITHUB_REF##*/}" | jq .
