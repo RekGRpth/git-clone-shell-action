@@ -13,4 +13,5 @@ jobs:
     steps:
       - env:
           GITHUB_TOKEN: ${{ github.token }}
+          INPUTS_TAG: v1.0.0
         uses: rekgrpth/github-publish-action-shell-action@v1
